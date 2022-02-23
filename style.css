@@ -1,0 +1,25 @@
+#carousel-box {
+    height: 200px;
+    width: 500px;
+    background: grey;
+    display: flex;
+    position: relative;
+    /* overflow: hidden; */
+}
+
+#carousel-box > span {
+    height: 200px;
+    /* width: 0px; */
+    display: inline-block;
+    /* position: absolute; */
+    background: #acbac6;
+    animation: width 2s;
+}
+
+#item-1{
+    width: 500px;
+    position: absolute;
+}
+
+
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"   />
+</head>
+<body>
+
+    <div id="carousel-box" >
+
+        <span id="item-1" >
+            First Slide
+        </span>
+
+        <span id="item-2" >
+            Second Slide
+        </span>
+
+        <span id="item-3" >
+            Third Slide
+        </span>
+
+        <span id="item-4" >
+            Fourth Slide
+        </span>
+
+
+
+    </div>
+
+    <div>
+
+        <button onclick="prevSlide()"> Prev </button>   <button onclick="nextSlide()"> Next </button> 
+
+    </div>
+
+
+    <script>
+
+        let currentSlide = 1;
+
+        let cards = Array.from(document.querySelectorAll("div > span"));
+
+        console.log(cards);
+
+        let currentIndex;
+        let nextIndex;
+
+        function nextSlide () {
+            currentIndex = (currentSlide-1)%4;
+            nextIndex = (currentIndex + 1)%4;
+            currentSlide++;
+
+            console.log(currentIndex, ">>>>>>>>", nextIndex)
+
+            cards[currentIndex].style.position = 'unset';
+            cards[nextIndex].style.position = 'absolute';
+            cards[currentIndex].style.width = '0px';
+            cards[nextIndex].style.width = '500px';
+
+            console.log(cards[currentIndex].style.width, ">>>>>>>>><<",  cards[nextIndex].style.width)
+            
+
+        }     
+
+        function prevSlide () {
+            currentIndex = (currentSlide-1)%4;
+            nextIndex = (currentIndex - 1 + 4)%4;
+            currentSlide--;
+
+            if(currentSlide === 0){
+                currentSlide = 4;
+            }
+
+
+            console.log(currentIndex, ">>>>>>>>", nextIndex)
+
+            cards[currentIndex].style.position = 'unset';
+            cards[nextIndex].style.position = 'absolute';
+            cards[currentIndex].style.width = '0px';
+            cards[nextIndex].style.width = '500px';
+
+            console.log(cards[currentIndex].style.width, ">>>>>>>>><<",  cards[nextIndex].style.width)
+            
+
+        }    
+
+
+
+
+    </script>
+    
+</body>
+</html>
